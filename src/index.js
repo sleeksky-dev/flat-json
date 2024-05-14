@@ -5,7 +5,6 @@
 /* eslint-disable nonblock-statement-body-position */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-cond-assign */
-import {isArray, isObject} from "lodash";
 import AltTypes from "./types";
 import AltError from "./alt-error";
 
@@ -162,7 +161,7 @@ const shape = (json, schema, options = {}) => {
       // if array
       schema = m[2];
       let schema_parts = schema.split(",");
-      if (!isArray(value)) value = schema_parts.map(s => null);
+      if (!Array.isArray(value)) value = schema_parts.map(s => null);
       if (value.length < schema_parts.length) {
         value = value.concat(schema_parts.slice(value.length).map(s => null));
       }
@@ -171,7 +170,7 @@ const shape = (json, schema, options = {}) => {
 
     } else if ((m = schema.match(RX.FLAT_OBJECT))) {
       // if object
-      if (!isObject(value) || isArray(value)) {
+      if (typeof value !== 'object' || Array.isArray(value)) {
         value = {};
       }
       schema = m[2];
@@ -245,7 +244,7 @@ const verify = (json, schema, options={}) => {
       }
     } else if ((m = schema.match(RX.FLAT_ARRAY))) {
       // if array
-      if (!isArray(value)) {
+      if (!Array.isArray(value)) {
         errors.push([path, 'should be array']);
         return false;
       }
@@ -256,7 +255,7 @@ const verify = (json, schema, options={}) => {
       }
     } else if ((m = schema.match(RX.FLAT_OBJECT))) {
       // if object
-      if (!isObject(value) || isArray(value)) {
+      if (typeof value !== 'object' || Array.isArray(value)) {
         errors.push([path, 'should be object']);
         return false;
       }

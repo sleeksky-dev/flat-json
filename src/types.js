@@ -1,4 +1,4 @@
-import {isArray, isObject, isString, isNumber, isBoolean, isInteger, isFunction, isRegExp} from "lodash";
+import {isArray, isObject, isString, isNumber, isBoolean, isInteger, isFunction, isRegExp} from "./lib";
 
 class AltTypes {
     constructor(types) {

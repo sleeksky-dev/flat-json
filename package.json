@@ -1,6 +1,6 @@
 {
   "name": "@sleeksky/alt-schema",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Easify verify and shape JSON objects using a simplified alternative JSON schema",
   "main": "./lib/index.js",
   "scripts": {
@@ -41,8 +41,11 @@
   "homepage": "https://github.com/sleeksky-dev/alt-schema#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^9.1.3",
     "babel-plugin-add-module-exports": "^1.0.4",
+    "babel-plugin-lodash": "^3.3.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-minify": "^0.5.1",
@@ -53,11 +56,10 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.1",
+    "lodash-webpack-plugin": "^0.11.6",
     "mocha": "^9.1.3",
     "nyc": "^15.1.0",
-    "rimraf": "^3.0.2"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
+    "rimraf": "^3.0.2",
+    "webpack": "^5.90.3"
   }
 }
