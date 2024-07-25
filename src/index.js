@@ -81,6 +81,7 @@ const typeShape = (schema) => {
       sch = m[2];
       return sch.split(",").reduce((acc, name) => {
         let [k,v] = splitOnce(name, ":");
+        if (k.match(RX.DEFAULTS)) k = default_strings[k.substr(1)*1];
         acc[k] = traverse(v);
         return acc;
       }, {});
