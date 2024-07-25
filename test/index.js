@@ -8,13 +8,13 @@ import { verify, shape, check, toAltSchema, _flatten, typeShape, extendTypes, se
 
 describe("typeShape", () => {
   it("should return shape type", () => {
-    let shape = typeShape('{a:int,b:?string:"hello world","c 1":[{d:b,e:[?b:false]}]}');
+    let shape = typeShape('{a:int,b:?string:"hello world","c 1":[{\'d 2\':b,e:[?b:false]}]}');
     expect(shape).to.deep.equal({
       "a": ":int:",
       "b": "?:string:hello world",
       "c 1": [
         {
-          "d": ":boolean:",
+          "d 2": ":boolean:",
           "e": [
             "?:boolean:false"
           ]

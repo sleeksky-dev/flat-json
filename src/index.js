@@ -33,6 +33,10 @@ const _flatten = (schema) => {
     schema = schema.substr(0, m.index) + `$${default_strings.length}` + schema.substr(m.index + m[0].length);
     default_strings.push(m[1]);
   }
+  while(m = schema.match(/'([^']+)'/)) {
+    schema = schema.substr(0, m.index) + `$${default_strings.length}` + schema.substr(m.index + m[0].length);
+    default_strings.push(m[1]);
+  }
   if (schema.match(/"/)) throw new Error("Missing closing quote");
 
   // strip all white spaces
